@@ -1,7 +1,6 @@
 // ignore_for_file: file_names, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:easy_bus_driver/globalvariabels.dart';
 import 'package:easy_bus_driver/widgets/ProgressDialog.dart';
 
 // ignore: use_key_in_widget_constructors

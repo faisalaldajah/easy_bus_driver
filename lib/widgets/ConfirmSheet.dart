@@ -1,6 +1,8 @@
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
+
 import 'package:easy_bus_driver/brand_colors.dart';
-import 'package:easy_bus_driver/widgets/TaxiButton.dart';
-import 'package:easy_bus_driver/widgets/TaxiOutlineButton.dart';
+import 'package:easy_bus_driver/widgets/BusButton.dart';
+import 'package:easy_bus_driver/widgets/BusOutlineButton.dart';
 import 'package:flutter/material.dart';
 
 class ConfirmSheet extends StatelessWidget {
@@ -16,6 +18,7 @@ class ConfirmSheet extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
+        // ignore: prefer_const_literals_to_create_immutables
         boxShadow: [
           BoxShadow(
             color: Colors.black26,
@@ -72,7 +75,7 @@ class ConfirmSheet extends StatelessWidget {
 
                 Expanded(
                   child: Container(
-                    child: TaxiButton(
+                    child: BusButton(
                       onPressed: onPressed,
                       color: (title == 'GO ONLINE') ? BrandColors.colorGreen : Colors.red,
                       title: 'CONFIRM',

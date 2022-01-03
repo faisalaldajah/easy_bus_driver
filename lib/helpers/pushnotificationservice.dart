@@ -88,24 +88,21 @@ class PushNotificationService{
 
       if(snapshot.value != null){
 
-        assetsAudioPlayer.open(
-          Audio('sounds/alert.mp3'),
-        );
-        assetsAudioPlayer.play();
+        // assetsAudioPlayer.open(
+        //   Audio('sounds/alert.mp3'),
+        // );
+        // assetsAudioPlayer.play();
 
         double pickupLat = double.parse(snapshot.value['location']['latitude'].toString());
         double pickupLng = double.parse(snapshot.value['location']['longitude'].toString());
         String pickupAddress = snapshot.value['pickup_address'].toString();
-
         double destinationLat = double.parse(snapshot.value['destination']['latitude'].toString());
         double destinationLng = double.parse(snapshot.value['destination']['longitude'].toString());
         String destinationAddress = snapshot.value['destination_address'];
         String paymentMethod = snapshot.value['payment_method'];
         String riderName = snapshot.value['rider_name'];
         String riderPhone = snapshot.value['rider_phone'];
-
         TripDetails tripDetails = TripDetails();
-
         tripDetails.rideID = rideID;
         tripDetails.pickupAddress = pickupAddress;
         tripDetails.destinationAddress = destinationAddress;

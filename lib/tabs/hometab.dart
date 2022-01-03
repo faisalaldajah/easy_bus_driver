@@ -1,5 +1,6 @@
-import 'dart:async';
+// ignore_for_file: prefer_final_fields, prefer_const_constructors, non_constant_identifier_names
 
+import 'dart:async';
 import 'package:easy_bus_driver/brand_colors.dart';
 import 'package:easy_bus_driver/datamodels/driver.dart';
 import 'package:easy_bus_driver/globalvariabels.dart';
@@ -7,8 +8,6 @@ import 'package:easy_bus_driver/helpers/helpermethods.dart';
 import 'package:easy_bus_driver/helpers/pushnotificationservice.dart';
 import 'package:easy_bus_driver/widgets/AvailabilityButton.dart';
 import 'package:easy_bus_driver/widgets/ConfirmSheet.dart';
-import 'package:easy_bus_driver/widgets/NotificationDialog.dart';
-import 'package:easy_bus_driver/widgets/TaxiButton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +16,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class HomeTab extends StatefulWidget {
+  const HomeTab({Key key}) : super(key: key);
+
   @override
   _HomeTabState createState() => _HomeTabState();
 }
@@ -45,14 +46,13 @@ class _HomeTabState extends State<HomeTab> {
   }
 
   void getCurrentDriverInfo() async {
-    currentFirebaseUser = await FirebaseAuth.instance.currentUser;
+    currentFirebaseUser = FirebaseAuth.instance.currentUser;
     DatabaseReference driverRef = FirebaseDatabase.instance
         .reference()
         .child('drivers/${currentFirebaseUser.uid}');
     driverRef.once().then((DataSnapshot snapshot) {
       if (snapshot.value != null) {
         currentDriverInfo = Driver.fromSnapshot(snapshot);
-        print(currentDriverInfo.fullName);
       }
     });
 
@@ -66,7 +66,6 @@ class _HomeTabState extends State<HomeTab> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getCurrentDriverInfo();
   }
@@ -76,7 +75,7 @@ class _HomeTabState extends State<HomeTab> {
     return Stack(
       children: <Widget>[
         GoogleMap(
-          padding: EdgeInsets.only(top: 135),
+          padding: const EdgeInsets.only(top: 135),
           myLocationEnabled: true,
           myLocationButtonEnabled: true,
           mapType: MapType.normal,

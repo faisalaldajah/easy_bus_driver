@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:easy_bus_driver/brand_colors.dart';
 import 'package:easy_bus_driver/dataprovider.dart';
 import 'package:easy_bus_driver/widgets/BrandDivier.dart';

@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:easy_bus_driver/dataprovider.dart';
 import 'package:easy_bus_driver/globalvariabels.dart';
 import 'package:easy_bus_driver/screens/login.dart';

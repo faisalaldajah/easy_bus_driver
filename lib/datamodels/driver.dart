@@ -1,32 +1,40 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:firebase_database/firebase_database.dart';
 
-class Driver{
+class Driver {
   String fullName;
   String email;
   String phone;
   String id;
-  String carModel;
-  String carColor;
-  String vehicleNumber;
-
+  String busType;
+  String socialDriverNumber;
+  String busNumber;
+  var driversIsAvailable;
+  String driverType;
+  String approveDriver;
   Driver({
     this.fullName,
     this.email,
     this.phone,
     this.id,
-    this.carModel,
-    this.carColor,
-    this.vehicleNumber,
+    this.busType,
+    this.socialDriverNumber,
+    this.busNumber,
+    this.driverType,
+    this.approveDriver,
   });
 
-  Driver.fromSnapshot(DataSnapshot snapshot){
+  Driver.fromSnapshot(DataSnapshot snapshot) {
     id = snapshot.key;
     phone = snapshot.value['phone'];
     email = snapshot.value['email'];
     fullName = snapshot.value['fullname'];
-    carModel = snapshot.value['vehicle_details']['car_model'];
-    carColor = snapshot.value['vehicle_details']['car_color'];
-    vehicleNumber = snapshot.value['vehicle_details']['vehicle_number'];
+    busType = snapshot.value['busType'];
+    socialDriverNumber = snapshot.value['socialDriverNumber'];
+    busNumber = snapshot.value['busNumber'];
+    driversIsAvailable = snapshot.value['driversIsAvailable'];
+    driverType = snapshot.value['driverType'];
+    approveDriver = snapshot.value['approveDriver'];
   }
-
 }

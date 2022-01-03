@@ -1,19 +1,21 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 
-class TaxiButton extends StatelessWidget {
+class BusButton extends StatelessWidget {
 
   final String title;
   final Color color;
   final Function onPressed;
 
-  TaxiButton({this.title, this.onPressed, this.color});
+  BusButton({this.title, this.onPressed, this.color});
 
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
       onPressed: onPressed,
-      shape: new RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(25)
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25)
       ),
       color: color,
       textColor: Colors.white,

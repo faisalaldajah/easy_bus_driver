@@ -1,10 +1,10 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:easy_bus_driver/brand_colors.dart';
-import 'package:easy_bus_driver/globalvariabels.dart';
-import 'package:easy_bus_driver/tabs/earningstab.dart';
+import 'package:easy_bus_driver/tabs/FixPage.dart';
 import 'package:easy_bus_driver/tabs/hometab.dart';
 import 'package:easy_bus_driver/tabs/profiletab.dart';
 import 'package:easy_bus_driver/tabs/ratingstab.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -12,12 +12,12 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin {
-
+class _MainPageState extends State<MainPage>
+    with SingleTickerProviderStateMixin {
   TabController tabController;
   int selecetdIndex = 0;
 
-  void onItemClicked(int index){
+  void onItemClicked(int index) {
     setState(() {
       selecetdIndex = index;
       tabController.index = selecetdIndex;
@@ -41,34 +41,33 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: TabBarView(
         physics: NeverScrollableScrollPhysics(),
         controller: tabController,
         children: <Widget>[
           HomeTab(),
-          EarningsTab(),
+          FixTab(),
           RatingsTab(),
           ProfileTab(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text('Home'),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.credit_card),
-            title: Text('Earnings'),
+            icon: Icon(Icons.settings),
+            label: 'Fix',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star),
-            title: Text('Ratings'),
+            label: 'Ratings',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            title: Text('Account'),
+            label: 'Account',
           ),
         ],
         currentIndex: selecetdIndex,

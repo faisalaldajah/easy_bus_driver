@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:easy_bus_driver/brand_colors.dart';
 import 'package:easy_bus_driver/datamodels/tripdetails.dart';
 import 'package:easy_bus_driver/globalvariabels.dart';
@@ -5,8 +7,8 @@ import 'package:easy_bus_driver/helpers/helpermethods.dart';
 import 'package:easy_bus_driver/screens/newtripspage.dart';
 import 'package:easy_bus_driver/widgets/BrandDivier.dart';
 import 'package:easy_bus_driver/widgets/ProgressDialog.dart';
-import 'package:easy_bus_driver/widgets/TaxiButton.dart';
-import 'package:easy_bus_driver/widgets/TaxiOutlineButton.dart';
+import 'package:easy_bus_driver/widgets/BusButton.dart';
+import 'package:easy_bus_driver/widgets/BusOutlineButton.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
@@ -38,7 +40,7 @@ class NotificationDialog extends StatelessWidget {
 
             SizedBox(height: 30.0,),
 
-            Image.asset('images/taxi.png', width: 100,),
+            Image.asset('images/bus-school.png', width: 100,),
 
             SizedBox(height: 16.0,),
 
@@ -111,7 +113,7 @@ class NotificationDialog extends StatelessWidget {
 
                   Expanded(
                     child: Container(
-                      child: TaxiButton(
+                      child: BusButton(
                         title: 'ACCEPT',
                         color: BrandColors.colorGreen,
                         onPressed: () async {
