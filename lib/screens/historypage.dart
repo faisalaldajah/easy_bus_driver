@@ -1,11 +1,9 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
-
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:easy_bus_driver/brand_colors.dart';
 import 'package:easy_bus_driver/dataprovider.dart';
 import 'package:easy_bus_driver/widgets/BrandDivier.dart';
 import 'package:easy_bus_driver/widgets/HistoryTile.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HistoryPage extends StatefulWidget {
   @override

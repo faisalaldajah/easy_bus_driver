@@ -1,5 +1,3 @@
-// ignore_for_file: file_names, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, sized_box_for_whitespace
-
 import 'package:flutter/material.dart';
 
 class AvailabilityButton extends StatelessWidget {
@@ -12,11 +10,10 @@ class AvailabilityButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: deprecated_member_use
     return RaisedButton(
       onPressed: onPressed,
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25)
+      shape: new RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(25)
       ),
       color: color,
       textColor: Colors.white,
@@ -26,7 +23,7 @@ class AvailabilityButton extends StatelessWidget {
         child: Center(
           child: Text(
             title,
-            style: const TextStyle(fontSize: 20, fontFamily: 'Brand-Bold'),
+            style: TextStyle(fontSize: 20, fontFamily: 'Brand-Bold'),
           ),
         ),
       ),

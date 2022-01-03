@@ -16,7 +16,7 @@ class _StartPageState extends State<StartPage> {
   @override
   void initState() {
     super.initState();
-    getCurrentDriverInfo(context);
+    //getCurrentDriverInfo(context);
   }
 
   @override

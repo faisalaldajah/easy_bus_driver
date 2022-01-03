@@ -1,23 +1,23 @@
-// ignore_for_file: use_key_in_widget_constructors, annotate_overrides, prefer_const_constructors, prefer_const_literals_to_create_immutables
-
-import 'package:flutter/material.dart';
+import 'package:easy_bus_driver/brand_colors.dart';
+import 'package:easy_bus_driver/globalvariabels.dart';
 import 'package:easy_bus_driver/tabs/earningstab.dart';
 import 'package:easy_bus_driver/tabs/hometab.dart';
 import 'package:easy_bus_driver/tabs/profiletab.dart';
 import 'package:easy_bus_driver/tabs/ratingstab.dart';
-import '../brand_colors.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
   static const String id = 'mainpage';
   _MainPageState createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage>
-    with SingleTickerProviderStateMixin {
+class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin {
+
   TabController tabController;
   int selecetdIndex = 0;
 
-  void onItemClicked(int index) {
+  void onItemClicked(int index){
     setState(() {
       selecetdIndex = index;
       tabController.index = selecetdIndex;
@@ -26,12 +26,14 @@ class _MainPageState extends State<MainPage>
 
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
     tabController = TabController(length: 4, vsync: this);
   }
 
   @override
   void dispose() {
+    // TODO: implement dispose
     tabController.dispose();
     super.dispose();
   }
@@ -39,6 +41,7 @@ class _MainPageState extends State<MainPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: TabBarView(
         physics: NeverScrollableScrollPhysics(),
         controller: tabController,
@@ -53,24 +56,24 @@ class _MainPageState extends State<MainPage>
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            title: Text('Home'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.credit_card),
-            label: 'Earnings',
+            title: Text('Earnings'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star),
-            label: 'Ratings',
+            title: Text('Ratings'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Account',
+            title: Text('Account'),
           ),
         ],
         currentIndex: selecetdIndex,
         unselectedItemColor: BrandColors.colorIcon,
-        selectedItemColor: BrandColors.colorAccent1,
+        selectedItemColor: BrandColors.colorOrange,
         showUnselectedLabels: true,
         selectedLabelStyle: TextStyle(fontSize: 12),
         type: BottomNavigationBarType.fixed,

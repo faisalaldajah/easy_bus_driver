@@ -1,7 +1,3 @@
-// ignore_for_file: file_names, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, prefer_const_constructors, avoid_unnecessary_containers
-
-import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/material.dart';
 import 'package:easy_bus_driver/brand_colors.dart';
 import 'package:easy_bus_driver/datamodels/tripdetails.dart';
 import 'package:easy_bus_driver/globalvariabels.dart';
@@ -11,6 +7,8 @@ import 'package:easy_bus_driver/widgets/BrandDivier.dart';
 import 'package:easy_bus_driver/widgets/ProgressDialog.dart';
 import 'package:easy_bus_driver/widgets/TaxiButton.dart';
 import 'package:easy_bus_driver/widgets/TaxiOutlineButton.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 
 class NotificationDialog extends StatelessWidget {

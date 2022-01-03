@@ -1,7 +1,5 @@
-// ignore_for_file: file_names, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, sized_box_for_whitespace, prefer_const_constructors
-
-import 'package:flutter/material.dart';
 import 'package:easy_bus_driver/brand_colors.dart';
+import 'package:flutter/material.dart';
 
 class TaxiOutlineButton extends StatelessWidget {
 
@@ -13,11 +11,10 @@ class TaxiOutlineButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: deprecated_member_use
     return OutlineButton(
         borderSide: BorderSide(color: color),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25.0),
+        shape: new RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(25.0),
         ),
         onPressed: onPressed,
         color: color,

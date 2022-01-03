@@ -1,7 +1,5 @@
-// ignore_for_file: file_names, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, prefer_const_constructors
-
-import 'package:flutter/material.dart';
 import 'package:easy_bus_driver/brand_colors.dart';
+import 'package:flutter/material.dart';
 
 class ProgressDialog extends StatelessWidget {
 

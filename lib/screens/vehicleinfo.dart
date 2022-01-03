@@ -1,24 +1,19 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
-
-import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/material.dart';
+import 'package:easy_bus_driver/brand_colors.dart';
+import 'package:easy_bus_driver/globalvariabels.dart';
 import 'package:easy_bus_driver/screens/mainpage.dart';
 import 'package:easy_bus_driver/widgets/TaxiButton.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/material.dart';
 
-import '../brand_colors.dart';
-import '../globalvariabels.dart';
-
-// ignore: must_be_immutable
 class VehicleInfoPage extends StatelessWidget {
 
 
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
 
   void showSnackBar(String title){
     final snackbar = SnackBar(
       content: Text(title, textAlign: TextAlign.center, style: TextStyle(fontSize: 15),),
     );
-    // ignore: deprecated_member_use
     scaffoldKey.currentState.showSnackBar(snackbar);
   }
 

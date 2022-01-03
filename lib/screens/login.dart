@@ -1,16 +1,17 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 
+import 'package:easy_bus_driver/brand_colors.dart';
+import 'package:easy_bus_driver/screens/mainpage.dart';
+import 'package:easy_bus_driver/screens/registration.dart';
+import 'package:easy_bus_driver/widgets/ProgressDialog.dart';
+import 'package:easy_bus_driver/widgets/TaxiButton.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:easy_bus_driver/screens/StartPage.dart';
-import 'package:easy_bus_driver/screens/registration.dart';
-import 'package:easy_bus_driver/widgets/GradientButton.dart';
-import 'package:easy_bus_driver/widgets/ProgressDialog.dart';
 
 class LoginPage extends StatefulWidget {
+
   static const String id = 'login';
 
   @override
@@ -18,17 +19,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  void showSnackBar(String title) {
+  void showSnackBar(String title){
     final snackbar = SnackBar(
-      content: Text(
-        title,
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 15),
-      ),
+      content: Text(title, textAlign: TextAlign.center, style: TextStyle(fontSize: 15),),
     );
-    // ignore: deprecated_member_use
     scaffoldKey.currentState.showSnackBar(snackbar);
   }
 
@@ -39,38 +35,36 @@ class _LoginPageState extends State<LoginPage> {
   var passwordController = TextEditingController();
 
   void login() async {
+
     //show please wait dialog
     showDialog(
       barrierDismissible: false,
       context: context,
-      builder: (BuildContext context) => ProgressDialog(
-        status: 'Logging you in',
-      ),
+      builder: (BuildContext context) => ProgressDialog(status: 'Logging you in',),
     );
 
-    final User user = (await _auth
-            .signInWithEmailAndPassword(
+    final User user = (await _auth.signInWithEmailAndPassword(
       email: emailController.text,
       password: passwordController.text,
-    )
-            .catchError((ex) {
+    ).catchError((ex){
+
       //check error and display message
       Navigator.pop(context);
       PlatformException thisEx = ex;
       showSnackBar(thisEx.message);
-    }))
-        .user;
 
-    if (user != null) {
+    })).user;
+
+    if(user != null){
       // verify login
-      DatabaseReference userRef =
-          FirebaseDatabase.instance.reference().child('drivers/${user.uid}');
+      DatabaseReference userRef = FirebaseDatabase.instance.reference().child('drivers/${user.uid}');
       userRef.once().then((DataSnapshot snapshot) {
-        if (snapshot.value != null) {
-          Navigator.pushNamedAndRemoveUntil(
-              context, StartPage.id, (route) => false);
+
+        if(snapshot.value != null){
+          Navigator.pushNamedAndRemoveUntil(context, MainPage.id, (route) => false);
         }
       });
+
     }
   }
 
@@ -85,24 +79,26 @@ class _LoginPageState extends State<LoginPage> {
             padding: EdgeInsets.all(8.0),
             child: Column(
               children: <Widget>[
-                SizedBox(
-                  height: 30,
-                ),
+                SizedBox(height: 70,),
                 Image(
                   alignment: Alignment.center,
-                  height: 180.0,
-                  width: 180.0,
+                  height: 100.0,
+                  width: 100.0,
                   image: AssetImage('images/logo.png'),
                 ),
-                Text(
-                  'Drivers',
-                  style: TextStyle(fontSize: 35),
+
+                SizedBox(height: 40,),
+
+                Text('Login as a driver',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 25, fontFamily: 'Brand-Bold'),
                 ),
-                SizedBox(height: 15),
+
                 Padding(
                   padding: EdgeInsets.all(20.0),
                   child: Column(
                     children: <Widget>[
+
                       TextField(
                         controller: emailController,
                         keyboardType: TextInputType.emailAddress,
@@ -111,13 +107,16 @@ class _LoginPageState extends State<LoginPage> {
                             labelStyle: TextStyle(
                               fontSize: 14.0,
                             ),
-                            hintStyle:
-                                TextStyle(color: Colors.grey, fontSize: 10.0)),
+                            hintStyle: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 10.0
+                            )
+                        ),
                         style: TextStyle(fontSize: 14),
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
+
+                      SizedBox(height: 10,),
+
                       TextField(
                         controller: passwordController,
                         obscureText: true,
@@ -126,51 +125,56 @@ class _LoginPageState extends State<LoginPage> {
                             labelStyle: TextStyle(
                               fontSize: 14.0,
                             ),
-                            hintStyle:
-                                TextStyle(color: Colors.grey, fontSize: 10.0)),
+                            hintStyle: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 10.0
+                            )
+                        ),
                         style: TextStyle(fontSize: 14),
                       ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      GradientButton(
+
+                      SizedBox(height: 40,),
+
+                      TaxiButton(
                         title: 'LOGIN',
+                        color: BrandColors.colorAccentPurple,
                         onPressed: () async {
+
                           //check network availability
 
-                          var connectivityResult =
-                              await Connectivity().checkConnectivity();
-                          if (connectivityResult != ConnectivityResult.mobile &&
-                              connectivityResult != ConnectivityResult.wifi) {
+                          var connectivityResult = await Connectivity().checkConnectivity();
+                          if(connectivityResult != ConnectivityResult.mobile && connectivityResult != ConnectivityResult.wifi){
                             showSnackBar('No internet connectivity');
                             return;
                           }
 
-                          if (!emailController.text.contains('@')) {
+                          if(!emailController.text.contains('@')){
                             showSnackBar('Please enter a valid email address');
                             return;
                           }
 
-                          if (passwordController.text.length < 8) {
+                          if(passwordController.text.length < 8){
                             showSnackBar('Please enter a valid password');
                             return;
                           }
 
                           login();
+
                         },
                       ),
+
                     ],
                   ),
                 ),
-                TextButton(
-                    onPressed: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, RegistrationPage.id, (route) => false);
+
+                FlatButton(
+                    onPressed: (){
+                      Navigator.pushNamedAndRemoveUntil(context, RegistrationPage.id, (route) => false);
                     },
-                    child: Text(
-                      'Don\'t have an account, sign up here',
-                      style: TextStyle(color: Colors.black),
-                    )),
+                    child: Text('Don\'t have an account, sign up here')
+                ),
+
+
               ],
             ),
           ),
@@ -179,3 +183,4 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
