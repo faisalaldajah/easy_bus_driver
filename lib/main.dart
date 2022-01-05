@@ -5,7 +5,6 @@ import 'package:easy_bus_driver/globalvariabels.dart';
 import 'package:easy_bus_driver/screens/login.dart';
 import 'package:easy_bus_driver/screens/mainpage.dart';
 import 'package:easy_bus_driver/screens/registration.dart';
-import 'package:easy_bus_driver/screens/vehicleinfo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +37,6 @@ class MyApp extends StatelessWidget {
         routes: {
           MainPage.id: (context) => MainPage(),
           RegistrationPage.id: (context) => RegistrationPage(),
-          VehicleInfoPage.id: (context) => VehicleInfoPage(),
           LoginPage.id: (context) => LoginPage(),
         },
       ),

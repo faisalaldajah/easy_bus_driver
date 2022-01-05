@@ -1,12 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:io';
-
 import 'package:easy_bus_driver/brand_colors.dart';
 import 'package:easy_bus_driver/globalvariabels.dart';
 import 'package:easy_bus_driver/screens/login.dart';
 import 'package:easy_bus_driver/screens/mainpage.dart';
-import 'package:easy_bus_driver/screens/vehicleinfo.dart';
 import 'package:easy_bus_driver/widgets/GradientButton.dart';
 import 'package:easy_bus_driver/widgets/ProgressDialog.dart';
 import 'package:connectivity/connectivity.dart';

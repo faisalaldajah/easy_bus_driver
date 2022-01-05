@@ -48,7 +48,7 @@ class _NewTripPageState extends State<NewTripPage> {
 
   bool isRequestingDirection = false;
 
-  String buttonTitle = 'ARRIVED';
+  String buttonTitle = 'DRAW LINE';
 
   Color buttonColor = BrandColors.colorGreen;
 
@@ -104,11 +104,6 @@ class _NewTripPageState extends State<NewTripPage> {
               setState(() {
                 mapPaddingBottom = (Platform.isIOS) ? 255 : 260;
               });
-
-              var currentLatLng =
-                  LatLng(currentPosition.latitude, currentPosition.longitude);
-              var pickupLatLng = widget.tripDetails.pickup;
-              await getDirection(currentLatLng, pickupLatLng);
 
               getLocationUpdates();
             },
