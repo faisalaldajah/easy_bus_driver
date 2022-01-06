@@ -10,7 +10,9 @@ class FixTab extends StatefulWidget {
 }
 
 class _FixTabState extends State<FixTab> {
-  bool value = false;
+  bool value0 = false;
+  bool value1 = false;
+  bool value2 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +21,14 @@ class _FixTabState extends State<FixTab> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Checkbox(
-                value: value,
+                value: value0,
                 onChanged: (bool value) {
                   setState(() {
-                    value = value;
+                    value0 = value;
                   });
                 },
               ),
@@ -38,10 +39,10 @@ class _FixTabState extends State<FixTab> {
           Row(
             children: [
               Checkbox(
-                value: value,
+                value: value1,
                 onChanged: (bool value) {
                   setState(() {
-                    value = value;
+                    value1 = value;
                   });
                 },
               ),
@@ -52,10 +53,11 @@ class _FixTabState extends State<FixTab> {
           Row(
             children: [
               Checkbox(
-                value: value,
+                value: value2,
                 onChanged: (bool value) {
                   setState(() {
-                    value = value;
+                    value2 = value;
+                    print(value2);
                   });
                 },
               ),
