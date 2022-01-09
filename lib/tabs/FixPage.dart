@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:easy_bus_driver/widgets/GradientButton.dart';
 import 'package:flutter/material.dart';
 
 class FixTab extends StatefulWidget {
@@ -10,62 +11,110 @@ class FixTab extends StatefulWidget {
 }
 
 class _FixTabState extends State<FixTab> {
-  bool value0 = false;
-  bool value1 = false;
-  bool value2 = false;
-
+  var frontController = TextEditingController();
+  var rearController = TextEditingController();
+  var oilController = TextEditingController();
+  var exController = TextEditingController();
+  var diseController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Checkbox(
-                value: value0,
-                onChanged: (bool value) {
-                  setState(() {
-                    value0 = value;
-                  });
-                },
-              ),
-              const SizedBox(width: 20),
-              const Text('تعبئة الزيت', style: TextStyle(fontSize: 25))
-            ],
-          ),
-          Row(
-            children: [
-              Checkbox(
-                value: value1,
-                onChanged: (bool value) {
-                  setState(() {
-                    value1 = value;
-                  });
-                },
-              ),
-              const SizedBox(width: 20),
-              const Text('تعبئة البنزين', style: TextStyle(fontSize: 25))
-            ],
-          ),
-          Row(
-            children: [
-              Checkbox(
-                value: value2,
-                onChanged: (bool value) {
-                  setState(() {
-                    value2 = value;
-                    print(value2);
-                  });
-                },
-              ),
-              const SizedBox(width: 20),
-              const Text('الغسيل', style: TextStyle(fontSize: 25))
-            ],
-          ),
-        ],
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        child: ListView(
+          children: [
+            SizedBox(height: 15),
+            const Text(
+              'ملاحظات الهيئة الامامية',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 15),
+            TextField(
+              controller: frontController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                  labelText: 'ملاحظات الهيئة الامامية',
+                  labelStyle: TextStyle(
+                    fontSize: 14.0,
+                  ),
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 10.0)),
+              style: const TextStyle(fontSize: 14),
+            ),
+            SizedBox(height: 15),
+            const Text(
+              'ملاحظات الهيئة الخلفية',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 15),
+            TextField(
+              controller: rearController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                  labelText: 'ملاحظات الهيئة الخلفية',
+                  labelStyle: TextStyle(
+                    fontSize: 14.0,
+                  ),
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 10.0)),
+              style: const TextStyle(fontSize: 14),
+            ),
+            SizedBox(height: 15),
+            const Text(
+              'ملاحظات البزين',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 15),
+            TextField(
+              controller: diseController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                  labelText: 'ملاحظات البنزين',
+                  labelStyle: TextStyle(
+                    fontSize: 14.0,
+                  ),
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 10.0)),
+              style: const TextStyle(fontSize: 14),
+            ),
+            SizedBox(height: 15),
+            const Text(
+              'ملاحظات زيت الماتور',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 15),
+            TextField(
+              controller: oilController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                  labelText: 'ملاحظات زيت الماتور',
+                  labelStyle: TextStyle(
+                    fontSize: 14.0,
+                  ),
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 10.0)),
+              style: const TextStyle(fontSize: 14),
+            ),
+            SizedBox(height: 15),
+            const Text(
+              'ملاحظات الترخيص',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 15),
+            TextField(
+              controller: exController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                  labelText: 'ملاحظات الترخيص',
+                  labelStyle: TextStyle(
+                    fontSize: 14.0,
+                  ),
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 10.0)),
+              style: const TextStyle(fontSize: 14),
+            ),
+            SizedBox(height: 30),
+            GradientButton(
+              onPressed: (){},
+              title: 'تأكيد',
+            )
+          ],
+        ),
       ),
     );
   }

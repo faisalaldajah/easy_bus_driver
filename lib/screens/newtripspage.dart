@@ -470,7 +470,7 @@ class _NewTripPageState extends State<NewTripPage> {
       durationCounter++;
     });
   }
-
+//TODO
   void endTrip() async {
     timer.cancel();
 
@@ -501,7 +501,7 @@ class _NewTripPageState extends State<NewTripPage> {
 
     topUpEarnings(fares);
   }
-
+//TODO
   void topUpEarnings(int fares) {
     DatabaseReference earningsRef = FirebaseDatabase.instance
         .reference()
