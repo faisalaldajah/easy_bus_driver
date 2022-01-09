@@ -470,6 +470,7 @@ class _NewTripPageState extends State<NewTripPage> {
       durationCounter++;
     });
   }
+
 //TODO
   void endTrip() async {
     timer.cancel();
@@ -492,31 +493,16 @@ class _NewTripPageState extends State<NewTripPage> {
     ridePositionStream.cancel();
 
     showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) => CollectPayment(
-              paymentMethod: widget.tripDetails.paymentMethod,
-              fares: fares,
-            ));
-
-    topUpEarnings(fares);
-  }
-//TODO
-  void topUpEarnings(int fares) {
-    DatabaseReference earningsRef = FirebaseDatabase.instance
-        .reference()
-        .child('drivers/${currentFirebaseUser.uid}/earnings');
-    earningsRef.once().then((DataSnapshot snapshot) {
-      if (snapshot.value != null) {
-        double oldEarnings = double.parse(snapshot.value.toString());
-
-        double adjustedEarnings = (fares.toDouble() * 0.85) + oldEarnings;
-
-        earningsRef.set(adjustedEarnings.toStringAsFixed(2));
-      } else {
-        double adjustedEarnings = (fares.toDouble() * 0.85);
-        earningsRef.set(adjustedEarnings.toStringAsFixed(2));
-      }
-    });
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) => ThxDialog(
+        title: 'thanks for your journy',
+        onTap: () {
+          Navigator.pop(context);
+          Navigator.pop(context);
+          HelperMethods.enableHomTabLocationUpdates();
+        },
+      ),
+    );
   }
 }

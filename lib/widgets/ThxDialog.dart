@@ -2,15 +2,16 @@
 
 import 'package:easy_bus_driver/brand_colors.dart';
 import 'package:easy_bus_driver/helpers/helpermethods.dart';
-import 'package:easy_bus_driver/widgets/BrandDivier.dart';
 import 'package:easy_bus_driver/widgets/BusButton.dart';
 import 'package:flutter/material.dart';
 
-class CollectPayment extends StatelessWidget {
-  final String paymentMethod;
-  final int fares;
-
-  CollectPayment({this.paymentMethod, this.fares});
+class ThxDialog extends StatelessWidget {
+  final String title;
+  final Function onTap;
+  ThxDialog({
+    @required this.title,
+    @required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,7 @@ class CollectPayment extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                'thanks for your journy',
+                title,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -53,12 +54,7 @@ class CollectPayment extends StatelessWidget {
               child: BusButton(
                 title: 'CONFIRM',
                 color: BrandColors.colorGreen,
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.pop(context);
-
-                  HelperMethods.enableHomTabLocationUpdates();
-                },
+                onPressed: onTap,
               ),
             ),
             SizedBox(

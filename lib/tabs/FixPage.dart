@@ -1,6 +1,7 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, prefer_const_constructors
 
 import 'package:easy_bus_driver/widgets/GradientButton.dart';
+import 'package:easy_bus_driver/widgets/ThxDialog.dart';
 import 'package:flutter/material.dart';
 
 class FixTab extends StatefulWidget {
@@ -31,7 +32,7 @@ class _FixTabState extends State<FixTab> {
             SizedBox(height: 15),
             TextField(
               controller: frontController,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               decoration: const InputDecoration(
                   labelText: 'ملاحظات الهيئة الامامية',
                   labelStyle: TextStyle(
@@ -48,7 +49,7 @@ class _FixTabState extends State<FixTab> {
             SizedBox(height: 15),
             TextField(
               controller: rearController,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               decoration: const InputDecoration(
                   labelText: 'ملاحظات الهيئة الخلفية',
                   labelStyle: TextStyle(
@@ -65,7 +66,7 @@ class _FixTabState extends State<FixTab> {
             SizedBox(height: 15),
             TextField(
               controller: diseController,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               decoration: const InputDecoration(
                   labelText: 'ملاحظات البنزين',
                   labelStyle: TextStyle(
@@ -82,7 +83,7 @@ class _FixTabState extends State<FixTab> {
             SizedBox(height: 15),
             TextField(
               controller: oilController,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               decoration: const InputDecoration(
                   labelText: 'ملاحظات زيت الماتور',
                   labelStyle: TextStyle(
@@ -99,7 +100,7 @@ class _FixTabState extends State<FixTab> {
             SizedBox(height: 15),
             TextField(
               controller: exController,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               decoration: const InputDecoration(
                   labelText: 'ملاحظات الترخيص',
                   labelStyle: TextStyle(
@@ -110,7 +111,23 @@ class _FixTabState extends State<FixTab> {
             ),
             SizedBox(height: 30),
             GradientButton(
-              onPressed: (){},
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => ThxDialog(
+                    title: 'شكرا لك لاضافة المعلومات',
+                    onTap: () {
+                      oilController.clear();
+                      exController.clear();
+                      frontController.clear();
+                      rearController.clear();
+                      diseController.clear();
+                      
+                      Navigator.pop(context);
+                    },
+                  ),
+                );
+              },
               title: 'تأكيد',
             )
           ],
