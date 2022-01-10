@@ -122,7 +122,6 @@ class _FixTabState extends State<FixTab> {
                       frontController.clear();
                       rearController.clear();
                       diseController.clear();
-                      
                       Navigator.pop(context);
                     },
                   ),

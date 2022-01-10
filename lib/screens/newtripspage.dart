@@ -130,7 +130,7 @@ class _NewTripPageState extends State<NewTripPage> {
                   )
                 ],
               ),
-              height: Platform.isIOS ? 280 : 255,
+              height: Platform.isIOS ? 280 : 280,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24, vertical: 18),
                 child: Column(
