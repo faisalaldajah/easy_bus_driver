@@ -60,11 +60,8 @@ class _NewTripPageState extends State<NewTripPage> {
     if (movingMarkerIcon == null) {
       ImageConfiguration imageConfiguration =
           createLocalImageConfiguration(context, size: Size(2, 2));
-      BitmapDescriptor.fromAssetImage(
-              imageConfiguration,
-              (Platform.isIOS)
-                  ? 'images/car_ios.png'
-                  : 'images/car_android.png')
+      BitmapDescriptor.fromAssetImage(imageConfiguration,
+              (Platform.isIOS) ? 'images/bus.png' : 'images/bus.png')
           .then((icon) {
         movingMarkerIcon = icon;
       });

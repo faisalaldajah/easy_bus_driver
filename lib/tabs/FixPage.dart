@@ -1,7 +1,9 @@
 // ignore_for_file: file_names, prefer_const_constructors
 
+import 'package:easy_bus_driver/globalvariabels.dart';
 import 'package:easy_bus_driver/widgets/GradientButton.dart';
 import 'package:easy_bus_driver/widgets/ThxDialog.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class FixTab extends StatefulWidget {
@@ -12,6 +14,9 @@ class FixTab extends StatefulWidget {
 }
 
 class _FixTabState extends State<FixTab> {
+  DatabaseReference database = FirebaseDatabase.instance
+      .reference()
+      .child('drivers/${currentFirebaseUser.uid}/fixData');
   var frontController = TextEditingController();
   var rearController = TextEditingController();
   var oilController = TextEditingController();
@@ -68,7 +73,7 @@ class _FixTabState extends State<FixTab> {
               controller: diseController,
               keyboardType: TextInputType.text,
               decoration: const InputDecoration(
-                  labelText: 'ملاحظات البنزين',
+                  labelText: 'ملاحظات الديزل',
                   labelStyle: TextStyle(
                     fontSize: 14.0,
                   ),
@@ -117,6 +122,14 @@ class _FixTabState extends State<FixTab> {
                   builder: (context) => ThxDialog(
                     title: 'شكرا لك لاضافة المعلومات',
                     onTap: () {
+                      Map fixMap = {
+                        'oil': oilController.text,
+                        'exDate': exController.text,
+                        'front': frontController.text,
+                        'rear': rearController.text,
+                        'dis': diseController.text,
+                      };
+                      database.set(fixMap);
                       oilController.clear();
                       exController.clear();
                       frontController.clear();
