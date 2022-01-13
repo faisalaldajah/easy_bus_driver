@@ -481,10 +481,6 @@ class _NewTripPageState extends State<NewTripPage> {
 
     Navigator.pop(context);
 
-    int fares = HelperMethods.estimateFares(directionDetails, durationCounter);
-
-    rideRef.child('fares').set(fares.toString());
-
     rideRef.child('status').set('ended');
 
     ridePositionStream.cancel();
