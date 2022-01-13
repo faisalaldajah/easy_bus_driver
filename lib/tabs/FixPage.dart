@@ -65,7 +65,7 @@ class _FixTabState extends State<FixTab> {
             ),
             SizedBox(height: 15),
             const Text(
-              'ملاحظات البزين',
+              'ملاحظات الديزل',
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 15),
@@ -119,7 +119,7 @@ class _FixTabState extends State<FixTab> {
               onPressed: () {
                 showDialog(
                   context: context,
-                  builder: (context) => ThxDialog(
+                  builder: (context) => ConfirmDialog(
                     title: 'شكرا لك لاضافة المعلومات',
                     onTap: () {
                       Map fixMap = {

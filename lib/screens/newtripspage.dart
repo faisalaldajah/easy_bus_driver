@@ -492,7 +492,7 @@ class _NewTripPageState extends State<NewTripPage> {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (BuildContext context) => ThxDialog(
+      builder: (BuildContext context) => ConfirmDialog(
         title: 'thanks for your journy',
         onTap: () {
           Navigator.pop(context);

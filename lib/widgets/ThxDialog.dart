@@ -5,10 +5,10 @@ import 'package:easy_bus_driver/helpers/helpermethods.dart';
 import 'package:easy_bus_driver/widgets/BusButton.dart';
 import 'package:flutter/material.dart';
 
-class ThxDialog extends StatelessWidget {
+class ConfirmDialog extends StatelessWidget {
   final String title;
   final Function onTap;
-  ThxDialog({
+  ConfirmDialog({
     @required this.title,
     @required this.onTap,
   });
