@@ -86,6 +86,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
         'busNumber': busNumberController.text,
         'approveDriver': 'false',
         'driverType': driverType,
+        'fixData':{
+          'rear':'non',
+          'front':'non',
+          'exDate':'non',
+          'oil':'non',
+          'dis':'non',
+        }
       };
       newDriverRef.set(userMap);
 
