@@ -70,7 +70,6 @@ class _NewTripPageState extends State<NewTripPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     acceptTrip();
   }

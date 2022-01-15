@@ -34,7 +34,6 @@ class PushNotificationService {
   // ignore: missing_return
   Future<String> getToken() async {
     String token = await fcm.getToken();
-    print('token: $token');
 
     DatabaseReference tokenRef = FirebaseDatabase.instance
         .reference()
@@ -52,7 +51,6 @@ class PushNotificationService {
       rideID = message['data']['ride_id'];
     } else {
       rideID = message['ride_id'];
-      print('ride_id: $rideID');
     }
 
     return rideID;

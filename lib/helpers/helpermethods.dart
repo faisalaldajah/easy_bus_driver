@@ -70,19 +70,8 @@ class HelperMethods {
       ),
     );
   }
-
+  //TODO
   static void getHistoryInfo(context) {
-    DatabaseReference earningRef = FirebaseDatabase.instance
-        .reference()
-        .child('drivers/${currentFirebaseUser.uid}/earnings');
-
-    earningRef.once().then((DataSnapshot snapshot) {
-      if (snapshot.value != null) {
-        String earnings = snapshot.value.toString();
-        Provider.of<AppData>(context, listen: false).updateEarnings(earnings);
-      }
-    });
-
     DatabaseReference historyRef = FirebaseDatabase.instance
         .reference()
         .child('drivers/${currentFirebaseUser.uid}/history');

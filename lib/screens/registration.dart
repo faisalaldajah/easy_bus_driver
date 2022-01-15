@@ -446,12 +446,3 @@ class _RegistrationPageState extends State<RegistrationPage> {
         buffer.asUint8List(data.offsetInBytes, data.lengthInBytes));
   }
 }
-
-class WhiteButton extends StatelessWidget {
-  const WhiteButton({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
